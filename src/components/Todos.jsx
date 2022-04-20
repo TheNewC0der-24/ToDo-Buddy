@@ -30,7 +30,20 @@ const Todos = (props) => {
                 onChange={(e) => handleChange(e)}
                 className='todo-input'
             />
-            <button className='add-btn'>Add</button>
+            <button className='add-btn' onClick={() => props.addTodo({
+                id: Math.floor(Math.random() * 1000),
+                item: todo,
+                completed: false
+            })}>Add</button>
+            <br />
+
+            <ul>
+                {
+                    props.todos.map(item => {
+                        return <li key={item.id}>{item.item}</li>
+                    })
+                }
+            </ul>
         </div>
     )
 }
