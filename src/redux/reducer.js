@@ -13,7 +13,7 @@ const addTodoReducer = createSlice({
         },
         // Deleting Todo
         removeTodos: (state, action) => {
-            state.filter(item => item.id !== action.payload);
+            return state.filter(item => item.id !== action.payload);
         }
     }
 });
