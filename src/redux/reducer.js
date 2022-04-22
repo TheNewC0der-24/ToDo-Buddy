@@ -26,9 +26,21 @@ const addTodoReducer = createSlice({
                 }
                 return todo;
             })
+        },
+        // Completed Todo
+        completeTodos: (state, action) => {
+            return state.map(todo => {
+                if (todo.id === action.payload) {
+                    return {
+                        ...todo,
+                        completed: !todo.completed
+                    }
+                }
+                return todo;
+            });
         }
     }
 });
 
-export const { addTodos, removeTodos, updateTodos } = addTodoReducer.actions;
+export const { addTodos, removeTodos, updateTodos, completeTodos } = addTodoReducer.actions;
 export const reducer = addTodoReducer.reducer;
