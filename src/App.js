@@ -1,4 +1,4 @@
-import './App.css';
+import './css/main.css';
 import DisplayTodos from './components/DisplayTodos';
 import Todos from './components/Todos';
 
