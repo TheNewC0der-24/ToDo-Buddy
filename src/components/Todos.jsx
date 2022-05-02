@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addTodos, removeTodos, updateTodos, completeTodos } from '../redux/reducer';
+import { addTodos } from '../redux/reducer';
 import { GoPlus } from 'react-icons/go';
 
 const mapStateToProps = (state) => {
@@ -11,10 +11,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addTodo: (obj) => dispatch(addTodos(obj)),
-        removeTodo: (id) => dispatch(removeTodos(id)),
-        updateTodo: (obj) => dispatch(updateTodos(obj)),
-        completeTodo: (id) => dispatch(completeTodos(id))
+        addTodo: (obj) => dispatch(addTodos(obj))
     };
 };
 
