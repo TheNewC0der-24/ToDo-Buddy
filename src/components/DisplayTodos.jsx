@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addTodos, removeTodos, updateTodos, completeTodos } from '../redux/reducer';
 import TodoItem from './TodoItem';
-
+import { AnimatePresence, motion } from 'framer-motion';
 
 const mapStateToProps = (state) => {
     return {
@@ -24,52 +24,70 @@ const DisplayTodos = (props) => {
     return (
         <div className="displaytodos">
             <div className="buttons">
-                <button onClick={() => setSort("active")}>Active</button>
-                <button onClick={() => setSort("completed")}>Complete</button>
-                <button onClick={() => setSort("all")}>All</button>
+                <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => setSort("active")}>
+                    Active
+                </motion.button>
+                <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => setSort("completed")}>
+                    Complete
+                </motion.button>
+                <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => setSort("all")}>
+                    All
+                </motion.button>
             </div>
+
             <ul>
-                {/* for active items */}
-                {props.todos.length > 0 && sort === "active" ?
-                    props.todos.map(item => {
-                        return (
-                            item.completed === false &&
-                            <TodoItem
-                                key={item.id}
-                                item={item}
-                                removeTodo={props.removeTodo}
-                                updateTodo={props.updateTodo}
-                                completeTodo={props.completeTodo}
-                            />
-                        )
-                    }) : null}
-                {/* for completed items */}
-                {props.todos.length > 0 && sort === "completed" ?
-                    props.todos.map(item => {
-                        return (
-                            item.completed === true &&
-                            <TodoItem
-                                key={item.id}
-                                item={item}
-                                removeTodo={props.removeTodo}
-                                updateTodo={props.updateTodo}
-                                completeTodo={props.completeTodo}
-                            />
-                        )
-                    }) : null}
-                {/* for all items */}
-                {props.todos.length > 0 && sort === "all" ?
-                    props.todos.map(item => {
-                        return (
-                            <TodoItem
-                                key={item.id}
-                                item={item}
-                                removeTodo={props.removeTodo}
-                                updateTodo={props.updateTodo}
-                                completeTodo={props.completeTodo}
-                            />
-                        );
-                    }) : null}
+                <AnimatePresence>
+                    {/* for active items */}
+                    {props.todos.length > 0 && sort === "active" ?
+                        props.todos.map(item => {
+                            return (
+                                item.completed === false &&
+                                <TodoItem
+                                    key={item.id}
+                                    item={item}
+                                    removeTodo={props.removeTodo}
+                                    updateTodo={props.updateTodo}
+                                    completeTodo={props.completeTodo}
+                                />
+                            )
+                        }) : null}
+                    {/* for completed items */}
+                    {props.todos.length > 0 && sort === "completed" ?
+                        props.todos.map(item => {
+                            return (
+                                item.completed === true &&
+                                <TodoItem
+                                    key={item.id}
+                                    item={item}
+                                    removeTodo={props.removeTodo}
+                                    updateTodo={props.updateTodo}
+                                    completeTodo={props.completeTodo}
+                                />
+                            )
+                        }) : null}
+                    {/* for all items */}
+                    {props.todos.length > 0 && sort === "all" ?
+                        props.todos.map(item => {
+                            return (
+                                <TodoItem
+                                    key={item.id}
+                                    item={item}
+                                    removeTodo={props.removeTodo}
+                                    updateTodo={props.updateTodo}
+                                    completeTodo={props.completeTodo}
+                                />
+                            );
+                        }) : null}
+                </AnimatePresence>
             </ul>
         </div>
     )
