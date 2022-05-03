@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2b0c5333-42d7-473d-a6ef-e6cb1a698dc8/deploy-status)](https://app.netlify.com/sites/todo-reduxapp/deploys)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
