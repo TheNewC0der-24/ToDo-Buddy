@@ -18,7 +18,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .App {
@@ -106,9 +106,9 @@ body {
 .displaytodos ul {
     list-style: none;
     display: flex;
-    align-self: flex-start;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
-    margin-left: 5%;
 }
 
 .card {
@@ -120,7 +120,7 @@ body {
             hsla(219, 88%, 94%, 0.9) 100%);
     margin: 0 1rem 1rem 0;
     height: 8rem;
-    width: 18rem;
+    width: 20rem;
     border-radius: 0.5rem;
     padding: 1rem;
     position: relative;
