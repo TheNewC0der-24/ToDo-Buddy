@@ -30,18 +30,14 @@ npm install react-icons
   <img src="https://github.com/TheNewC0der-24/todo-react_redux/blob/master/Preview/Preview-3.png" width="400">
 </p>
 
-## Todo
-- [ ] Add good looking alerts
-- [ ] Store the to-do's in local storage
-
 ## Link
 ```
 https://todo-reduxapp.netlify.app/
 ```
 
+## Todo
+- [ ] Add good looking alerts
+- [ ] Store the to-do's in local storage
+
 ---
 <h3 align='center'>Hope you like this Application :-)
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
