@@ -42,9 +42,10 @@ const Todos = (props) => {
         <div className='addTodos'>
             <input
                 type="text"
-                onChange={(e) => handleChange(e)}
                 className='todo-input'
+                placeholder='Add a ToDo...'
                 value={todo}
+                onChange={(e) => handleChange(e)}
             />
             <motion.button
                 whileHover={{ scale: 1.1 }}
