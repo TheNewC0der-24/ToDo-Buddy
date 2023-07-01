@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { addTodos, removeTodos, updateTodos, completeTodos } from '../redux/reducer';
-import TodoItem from './TodoItem';
+import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+
+import { connect } from 'react-redux';
+import { initializeTodos, addTodos, removeTodos, updateTodos, completeTodos } from '../redux/reducer';
+
+import TodoItem from './TodoItem';
+
+import { getStoredTodosFromLocalStorage } from "../utils/getStoredTodosFromLocalStorage";
 
 const mapStateToProps = (state) => {
     return {
@@ -12,6 +16,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        initializeTodos: (todos) => dispatch(initializeTodos(todos)),
         addTodo: (obj) => dispatch(addTodos(obj)),
         removeTodo: (id) => dispatch(removeTodos(id)),
         updateTodo: (obj) => dispatch(updateTodos(obj)),
@@ -20,7 +25,15 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const DisplayTodos = (props) => {
-    const [sort, setSort] = useState("active")
+
+    const [sort, setSort] = useState("active");
+
+    const storedTodos = getStoredTodosFromLocalStorage();
+
+    useEffect(() => {
+        props.initializeTodos(storedTodos);
+    }, []);
+
     return (
         <div className="displaytodos">
             <div className="buttons">
