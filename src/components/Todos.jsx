@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+
 import { connect } from 'react-redux';
 import { addTodos } from '../redux/reducer';
+
 import { GoPlus } from 'react-icons/go';
-import { motion } from 'framer-motion';
+
+import { message, notification } from 'antd';
 
 const mapStateToProps = (state) => {
     return {
@@ -27,7 +31,12 @@ const Todos = (props) => {
 
     const add = () => {
         if (todo === "") {
-            alert("Please enter a ToDo 👇");
+            notification.error({
+                message: 'Error',
+                description: 'Please enter a ToDo',
+                duration: 2,
+                placement: 'bottomRight'
+            });
         } else {
             props.addTodo({
                 id: Math.floor(Math.random() * 1000),
@@ -35,6 +44,12 @@ const Todos = (props) => {
                 completed: false
             })
             setTodo('');
+            notification.success({
+                message: 'Success',
+                description: 'ToDo added successfully',
+                duration: 2,
+                placement: 'bottomRight'
+            });
         }
     }
 
