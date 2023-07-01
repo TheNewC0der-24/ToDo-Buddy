@@ -49,6 +49,7 @@ const TodoItem = (props) => {
             <textarea
                 ref={inputRef}
                 disabled={inputRef}
+                placeholder={update && "Click enter to update"}
                 defaultValue={item.item}
                 onKeyPress={(e) => update(item.id, inputRef.current.value, e)}
             />
@@ -78,7 +79,7 @@ const TodoItem = (props) => {
                     {" "}<IoClose />{" "}
                 </motion.button>{" "}
             </div>
-            {item.completed && <span className="completed"> done </span>}
+            {item.completed && <span className="completed"> Done </span>}
         </motion.li>
     )
 }
