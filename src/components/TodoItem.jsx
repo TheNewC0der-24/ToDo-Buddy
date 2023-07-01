@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { AiFillEdit } from 'react-icons/ai';
 import { IoCheckmarkDoneSharp, IoClose } from 'react-icons/io5';
 import { motion } from 'framer-motion';
+import { notification } from 'antd';
 
 const TodoItem = (props) => {
     const { item, updateTodo, removeTodo, completeTodo } = props;
@@ -11,6 +12,13 @@ const TodoItem = (props) => {
     const changeFocus = () => {
         inputRef.current.disabled = false;
         inputRef.current.focus();
+
+        notification.info({
+            message: 'Info',
+            description: 'Click enter to update',
+            duration: 5,
+            placement: 'bottomRight'
+        })
     };
 
     const update = (id, value, e) => {
@@ -18,6 +26,12 @@ const TodoItem = (props) => {
             // 13 is key code for enter key
             updateTodo({ id, item: value });
             inputRef.current.disabled = true;
+
+            notification.success({
+                message: 'Success',
+                description: 'Todo edited successfully',
+                placement: 'bottomRight'
+            })
         }
     };
 
@@ -49,7 +63,6 @@ const TodoItem = (props) => {
             <textarea
                 ref={inputRef}
                 disabled={inputRef}
-                placeholder={update && "Click enter to update"}
                 defaultValue={item.item}
                 onKeyPress={(e) => update(item.id, inputRef.current.value, e)}
             />
@@ -67,7 +80,14 @@ const TodoItem = (props) => {
                         whileHover={{ scale: 1.4 }}
                         whileTap={{ scale: 0.9 }}
                         style={{ color: 'green' }}
-                        onClick={() => completeTodo(item.id)}>
+                        onClick={() => {
+                            completeTodo(item.id);
+                            notification.success({
+                                message: 'Success',
+                                description: 'Todo marked as done successfully',
+                                placement: 'bottomRight'
+                            })
+                        }}>
                         {" "}<IoCheckmarkDoneSharp />{" "}
                     </motion.button>
                 )}
@@ -75,7 +95,14 @@ const TodoItem = (props) => {
                     whileHover={{ scale: 1.4 }}
                     whileTap={{ scale: 0.9 }}
                     style={{ color: 'red' }}
-                    onClick={() => removeTodo(item.id)}>
+                    onClick={() => {
+                        removeTodo(item.id);
+                        notification.success({
+                            message: 'Success',
+                            description: 'Todo deleted successfully',
+                            placement: 'bottomRight'
+                        })
+                    }}>
                     {" "}<IoClose />{" "}
                 </motion.button>{" "}
             </div>

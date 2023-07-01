@@ -6,7 +6,7 @@ import { addTodos } from '../redux/reducer';
 
 import { GoPlus } from 'react-icons/go';
 
-import { message, notification } from 'antd';
+import { notification } from 'antd';
 
 const mapStateToProps = (state) => {
     return {

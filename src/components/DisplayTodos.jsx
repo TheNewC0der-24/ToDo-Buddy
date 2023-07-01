@@ -32,6 +32,7 @@ const DisplayTodos = (props) => {
 
     useEffect(() => {
         props.initializeTodos(storedTodos);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
@@ -55,11 +56,70 @@ const DisplayTodos = (props) => {
                     onClick={() => setSort("all")}>
                     All
                 </motion.button>
+                <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => setSort("status")}>
+                    Status
+                </motion.button>
             </div>
+
+            {
+                sort === "status" && (
+                    <React.Fragment>
+                        <motion.div
+                            className="status-card"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 1 }}
+                        >
+                            <h3>
+                                {
+                                    props.todos.length === 0
+                                        ? "No Todos"
+                                        : `You have ${props.todos.length} total ${props.todos.length === 1 ? "todo" : "todos"}`
+                                }
+                            </h3>
+                        </motion.div>
+                        <motion.div
+                            className="status-card"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 1.5 }}
+                        >
+                            <h3>
+                                {
+                                    props.todos.filter((todo) => todo.completed === false).length === 0
+                                        ? "No Active Todos"
+                                        : `You have ${props.todos.filter((todo) => todo.completed === false).length} active ${props.todos.filter((todo) => todo.completed === false).length === 1 ? "todo" : "todos"}`
+                                }
+                            </h3>
+                        </motion.div>
+                        <motion.div
+                            className="status-card"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 2 }}
+                        >
+                            <h3>
+                                {
+                                    props.todos.filter((todo) => todo.completed === true).length === 0
+                                        ? "No Completed Todos"
+                                        : `You have ${props.todos.filter((todo) => todo.completed === true).length} completed ${props.todos.filter((todo) => todo.completed === true).length === 1 ? "todo" : "todos"}`
+                                }
+                            </h3>
+                        </motion.div>
+                    </React.Fragment>
+                )
+            }
+
+            {sort === "active" && <h3 className='tab-heading'>Active Todos</h3>}
+            {sort === "completed" && <h3 className='tab-heading'>Completed Todos</h3>}
+            {sort === "all" && <h3 className='tab-heading'>All Todos</h3>}
 
             <ul>
                 <AnimatePresence>
-                    {/* for active items */}
+                    {/* FOR ACTIVE TODOS */}
                     {props.todos.length > 0 && sort === "active" ?
                         props.todos.map(item => {
                             return (
@@ -73,7 +133,7 @@ const DisplayTodos = (props) => {
                                 />
                             )
                         }) : null}
-                    {/* for completed items */}
+                    {/* FOR COMPLETED TODOS */}
                     {props.todos.length > 0 && sort === "completed" ?
                         props.todos.map(item => {
                             return (
@@ -87,7 +147,7 @@ const DisplayTodos = (props) => {
                                 />
                             )
                         }) : null}
-                    {/* for all items */}
+                    {/* FOR ALL TODOS */}
                     {props.todos.length > 0 && sort === "all" ?
                         props.todos.map(item => {
                             return (
@@ -100,6 +160,7 @@ const DisplayTodos = (props) => {
                                 />
                             );
                         }) : null}
+                    {/* FOR STATUS */}
                 </AnimatePresence>
             </ul>
         </div>
