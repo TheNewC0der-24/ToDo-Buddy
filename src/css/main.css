@@ -126,6 +126,17 @@ body {
     position: relative;
 }
 
+.status-card {
+    background: rgb(180, 182, 218);
+    background: radial-gradient(circle,
+            hsla(237, 34%, 78%, 0.9) 0%,
+            hsla(219, 88%, 94%, 0.9) 100%);
+    margin: 0 1rem 1rem 0;
+    width: 20rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
 .card textarea {
     padding: 0.5rem;
     border-radius: 8px;
@@ -169,4 +180,8 @@ body {
     font-size: 0.8rem;
     padding: 0.3rem 1rem;
     border-radius: 20px;
+}
+
+.tab-heading {
+    margin-bottom: 2rem;
 }
