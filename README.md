@@ -7,6 +7,10 @@ It allows users to manage their tasks from a smartphone, tablet and computer.
 ## Features
 The user can manage their task easily. Tasks can be 'Edited' and 'Deleted' by the user. <br> The tasks are further divided into categories based on their status, such as `Active` or `Completed`. Also, By just clicking on the All tab, the user can see 'All' tasks.
 
+## ToDo 
+- [x] Use localStorage to store the todos.
+- [x] Add beautiful notifications.
+
 ## Built With
 <a href='https://github.com/shivamkapasia0' target="_blank">
   <img alt='React' src='https://img.shields.io/badge/React-100000?style=for-the-badge&logo=React&logoColor=000000&labelColor=61DBFB&color=61DBFB'/>
