@@ -1,11 +1,22 @@
 <h1 align='center'>ToDo Buddy</h1>
 
 ## About 
-ToDo - a task management application. <br>
-It allows users to manage their tasks from a smartphone, tablet and computer. 
+ToDo Buddy - a task management application. 
+
+It allows users to add, edit, delete, and mark tasks as done. The application uses local storage to persist the to-do list.
 
 ## Features
-The user can manage their task easily. Tasks can be 'Edited' and 'Deleted' by the user. <br> The tasks are further divided into categories based on their status, such as `Active` or `Completed`. Also, By just clicking on the All tab, the user can see 'All' tasks.
+- **Add new tasks:** Users can create new tasks by entering a description and clicking the "Add" button.
+- **Edit tasks:** Users can edit the description of existing tasks by clicking on the "Edit" button and modifying the text.
+- **Delete tasks:** Users can remove tasks by clicking the delete button.
+- **Mark tasks as done:** Users can mark tasks as completed by clicking a check button.
+- **Multiple tabs:** Tasks are organized into four tabs: "Active", "Completed", "All", and "Status".
+
+The "Status" tab provides an overview of the current state of the to-do list. It displays the following information:
+
+1. Total tasks: The total number of tasks in the list.
+2. Active tasks: The number of tasks that are not marked as completed.
+3. Completed tasks: The number of tasks that have been marked as completed.
 
 ## ToDo 
 - [x] Use localStorage to store the todos.
@@ -48,6 +59,9 @@ npm install antd
   <img src="https://github.com/TheNewC0der-24/todo-react_redux/blob/master/Preview/Preview-3.png" width="400">
   <img src="https://github.com/TheNewC0der-24/todo-react_redux/blob/master/Preview/Preview-4.png" width="400">
 </p>
+
+## Contributing
+Contributions are welcome! If you have any improvements or bug fixes, feel free to submit a pull request. Please make sure to follow the code style and include tests for any new features.
 
 ## Link
 ```
